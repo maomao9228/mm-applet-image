@@ -1,0 +1,72 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/home/index",
+			"style": {
+				"navigationBarTitleText": "上传"
+				// "enablePullDownRefresh": true, // 局部下拉舒心是改为false
+				// "allowsBounceVertical": "YES"
+
+			}
+		},
+		{
+			"path": "pages/mine/index",
+			"style": {
+				"navigationBarTitleText": "图片下载",
+				"navigationBarBackgroundColor": "#1B91FF",
+				"navigationBarTextStyle": "white"
+			}
+		}
+	],
+	// "subPackages": [ // 分包加载配置
+	// 	{
+	// 		"root": "home",
+	// 		"name": "home",
+	// 		"pages": [ ]
+	// 	},
+	// 	{
+	// 		"root": "mine",
+	// 		"name": "mine",
+	// 		"pages": [ ]
+	// 	}
+
+	// ],
+	// "preloadRule": {
+	// 	"pages/home/index": { //进入小程序某个页面时，由框架自动预下载可能需要的分包，提升进入后续分包页面时的启动速度
+	// 		"network": "all",
+	// 		"packages": ["home", "mine"]
+	// 	}
+	// },
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "图片处理",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F7F7F7",
+		"enablePullDownRefresh": false, //禁止下拉刷新
+		"allowsBounceVertical": "NO" // 支付宝不允许下拉刷新
+
+
+	},
+	"tabBar": {
+		"color": "#999999",
+		"selectedColor": "#20A0FF",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/home/index",
+				"iconPath": "static/image/iconPath/index.png",
+				"selectedIconPath": "static/image/iconPath/activeIndex.png",
+				"text": "图片上传"
+			},
+			{
+				"pagePath": "pages/mine/index",
+				"iconPath": "static/image/iconPath/mine.png",
+				"selectedIconPath": "static/image/iconPath/activeMine.png",
+				"text": "图片下载"
+			}
+		]
+	},
+	"easycom": {
+		"autoscan": true
+	}
+}
