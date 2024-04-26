@@ -1,0 +1,1 @@
+# mm-applet-image
