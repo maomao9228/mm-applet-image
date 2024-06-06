@@ -22,22 +22,41 @@
 		},
 		methods: {
 			downLoadImg(){
+				const _this = this;
 				if(this.compressImages.length){
-					this.compressImages.forEach((path) => {
-						      wx.getImageInfo({
-                                src: path,
-                                success:(res)=>{
-                                    console.log('[ 2---------imgInfo ] >', res)
-                                          uni.saveImageToPhotosAlbum({
-                                            filePath: res.path,
-                                            success: function () {
-                                                console.log('save success');
-                                            }
-                                        });
-                                },
-                            })
-					})
+					wx.getSetting({
+					  success(res) {
+					    if (!res.authSetting['scope.writePhotosAlbum']) {
+					      // 用户未授权
+					      wx.authorize({
+					        scope: 'scope.writePhotosAlbum',
+					        success() {
+					          // 用户已授权，可以获取用户信息
+					          _this.downLoadImg2();
+					        }
+					      });
+					    } else {
+							_this.downLoadImg2();
+					    }
+					  }
+					});
 				}
+			},
+			downLoadImg2(){
+							this.compressImages.forEach((path) => {
+									  wx.getImageInfo({
+										src: path,
+										success:(res)=>{
+											console.log('[ 2---------imgInfo ] >', res)
+												  uni.saveImageToPhotosAlbum({
+													filePath: res.path,
+													success: function () {
+														console.log('save success');
+													}
+												});
+										},
+									})
+							})
 			}
 		},
 	}
