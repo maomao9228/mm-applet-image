@@ -1,0 +1,10 @@
+.downloadHome image.data-v-4bd6864f {
+  width: 100vw;
+}
+.downloadHome .btn.data-v-4bd6864f {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+

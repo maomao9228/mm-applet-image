@@ -1,0 +1,1 @@
+<view class="downloadHome data-v-4bd6864f"><block wx:for="{{compressImages}}" wx:for-item="url" wx:for-index="inx" wx:key="inx"><block class="data-v-4bd6864f"><image src="{{url}}" mode="widthFix" class="data-v-4bd6864f"></image></block></block><button data-event-opts="{{[['tap',[['downLoadImg',['$event']]]]]}}" class="btn data-v-4bd6864f" bindtap="__e">下载压缩图</button></view>

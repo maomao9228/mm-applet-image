@@ -93,7 +93,7 @@ html,
 body,
 page,
 #app {
-	// height: 100%;
+	height: 100%;
 	width: 100%;
 	background: #f6f6f6;
 	// background-color: #f5f5f5;
@@ -101,10 +101,10 @@ page,
 }
 page {
 	box-sizing: border-box;
-	padding-bottom: constant(safe-area-inset-bottom);
-	padding-bottom: env(safe-area-inset-bottom);
-	.globalBackgroundColor {
-		background-color: #f5f5f5;
-	}
+	// padding-bottom: constant(safe-area-inset-bottom);
+	// padding-bottom: env(safe-area-inset-bottom);
+	// .globalBackgroundColor {
+	// 	background-color: #f5f5f5;
+	// }
 }
 </style>
