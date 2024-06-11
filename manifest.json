@@ -1,6 +1,6 @@
 {
     "name" : "imgYS-mm",
-    "appid" : "__UNI__E42233C",
+    "appid" : "__UNI__EBD0027",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -59,7 +59,7 @@
                     },
                     "weixin" : {
                         "__platform__" : [ "ios", "android" ],
-                        "appid" : "wxd6624c2d061633b0",
+                        "appid" : "wx8eed107becdee80c",
                         "UniversalLinks" : ""
                     }
                 }

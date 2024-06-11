@@ -9,26 +9,26 @@
             <view class="imgList" v-if="urlList.length">
                 <view v-if="checked == 'r1'" class="originalImgs">
                     <view class="imageBox" v-for="(item, index) in urlList" :key="index">
-                        <image v-if="item" @click="previewImg(item)" :src="item" mode="widthFix"></image>
+                        <image v-if="item" @click="previewImg(urlList)" :src="item" mode="widthFix"></image>
                         <text class="noImg" v-else>压缩失败</text>
                     </view>
                 </view>
                 <view  v-if="checked == 'r2'" class="compressImages">
                     <view class="imageBox" v-for="(item, index) in compressImages" :key="index">
-                        <image  v-if="item" @click="previewImg(item)" :src="item" mode="widthFix"></image>
+                        <image  v-if="item" @click="previewImg(compressImages)" :src="item" mode="widthFix"></image>
                         <text  class="noImg" v-else>压缩失败</text>
                     </view>
                 </view>
                 <view  v-if="checked == 'r3'" class="comparisonImgs">
                     <view class="comparisonImgsBox">
                         <view class="imageBox" v-for="(item, index) in urlList" :key="index">
-                            <image v-if="item"  @click="previewImg(item)" :src="item" mode="widthFix"></image>
+                            <image v-if="item"  @click="previewImg(index, true)" :src="item" mode="widthFix"></image>
                             <text class="noImg" v-else>压缩失败</text>
                         </view>
                     </view>
                     <view class="comparisonImgsBox">
                         <view class="imageBox" v-for="(item, index) in compressImages" :key="index">
-                            <image  v-if="item"  @click="previewImg(item)" :src="item" mode="widthFix"></image>
+                            <image  v-if="item"  @click="previewImg(index, true)" :src="item" mode="widthFix"></image>
                             <text  class="noImg" v-else>压缩失败</text>
                         </view>
                     </view>
@@ -174,10 +174,18 @@
 						})
 				})
 			},
-            previewImg(url){
+            previewImg(url, val){
                 uni.previewImage({
-                    urls: url
+                    urls: val ? [this.urlList[url],this.compressImages[url]] : url,
+                    fail: (res) => {
+                        uni.showToast({
+                            title: '预览失败',
+                            duration: 3000,
+                            icon: 'none'
+                        })
+                    }
                 });
+
             }
         },
     }
